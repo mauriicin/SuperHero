@@ -1,23 +1,41 @@
-import React, { useState, createContext } from 'react';
+import React, { useState, useEffect, createContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+
 
 export const AuthContext = createContext();
 
-export const AuthProvider = ({children}) => {
+export const AuthProvider = ({ children }) => {
 	const navigate = useNavigate();
 	const [user, setUser] = useState(null);
+	const [loading, setLoading] = useState(true);
+
+	useEffect(() => {
+		const loggedRecovery = localStorage.getItem('user');
+
+		if (loggedRecovery) {
+			setUser(JSON.parse(loggedRecovery));
+		}
+
+		setLoading(false);
+	}, []);
 
 	const login = (email, password) => {
+		const loggedUser = {
+			id: '1',
+			email,
+		};
 
-		if(password === '123'){
-			setUser({ id: '1', email });
-			navigate('/home');
+		localStorage.setItem('user', JSON.stringify(loggedUser));
+
+		if (password === '123') {
+			setUser(loggedUser);
+			navigate('/');
 		}		
 	};
 	const logout = () => {
-		console.log('logout');
 		setUser(null);
-		navigate('/')
+		localStorage.removeItem('user');
+		navigate('/login');
 	};
 
 	return (
@@ -25,6 +43,7 @@ export const AuthProvider = ({children}) => {
 			value={{
 				authenticated: !!user,
 				user,
+				loading,
 				login,
 				logout,
 			}}
