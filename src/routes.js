@@ -5,7 +5,7 @@ import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
 import Home from './pages/Home';
 
-import AuthProvider from './contexts/auth';
+import { AuthProvider } from './contexts/auth';
 
 export default function RoutesConfig() {
 	return (
