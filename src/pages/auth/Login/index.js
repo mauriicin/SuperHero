@@ -24,63 +24,67 @@ export default function Login() {
 		if (!email || !password) {
 			setError('Preencha e-mail e senha para continuar!');
 		}
-
 		login(email, password);
 	}
 
-	return (		
+	return (
 		<Container maxWidth="sm">
-			{authenticated ? (<></>) : (<Navigate to="/" />)}
-			<Box
-				sx={{
-					marginTop: 8,
-					display: 'flex',
-					flexDirection: 'column',
-					alignItems: 'center',
-				}}
-			>
-				<Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}></Avatar>
-				<Typography component="h1" variant="h5">
-					Login
-				</Typography>
-				{!error ? <></> : <Alert severity="error">{error}</Alert>}
-				<form onSubmit={handleLogin}>
-					<TextField
-						margin="normal"
-						fullWidth
-						id="email"
-						label="E-mail"
-						name="email"
-						autoComplete="email"
-						autoFocus
-						value={email}
-						onChange={(e) => setEmail(e.target.value)}
-					/>
-					<TextField
-						margin="normal"
-						fullWidth
-						name="password"
-						label="Senha"
-						type="password"
-						id="password"
-						autoComplete="current-password"
-						value={password}
-						onChange={(e) => setPassword(e.target.value)}
-					/>
-					<FormControlLabel
-						control={<Checkbox value="remember" color="primary" />}
-						label="Manter-me conectado"
-					/>
-					<Button
-						type="submit"
-						fullWidth
-						variant="contained"
-						sx={{ mt: 3, mb: 2 }}
-					>
-						Entrar
-					</Button>
-				</form>
-			</Box>
+			{authenticated ? (
+				<Box
+					sx={{
+						marginTop: 8,
+						display: 'flex',
+						flexDirection: 'column',
+						alignItems: 'center',
+					}}
+				>
+					<Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}></Avatar>
+					<Typography component="h1" variant="h5">
+						Login
+					</Typography>
+					{!error ? <></> : <Alert severity="error">{error}</Alert>}
+					<form onSubmit={handleLogin}>
+						<TextField
+							margin="normal"
+							fullWidth
+							id="email"
+							label="E-mail"
+							name="email"
+							autoComplete="email"
+							autoFocus
+							value={email}
+							onChange={(e) => setEmail(e.target.value)}
+						/>
+						<TextField
+							margin="normal"
+							fullWidth
+							name="password"
+							label="Senha"
+							type="password"
+							id="password"
+							autoComplete="current-password"
+							value={password}
+							onChange={(e) => setPassword(e.target.value)}
+						/>
+						<FormControlLabel
+							control={
+								<Checkbox value="remember" color="primary" />
+							}
+							label="Manter-me conectado"
+						/>
+						<Button
+							type="submit"
+							fullWidth
+							variant="contained"
+							sx={{ mt: 3, mb: 2 }}
+						>
+							Entrar
+						</Button>
+					</form>
+				</Box>
+			) : (
+				<Navigate to="/" />
+			)}
 		</Container>
 	);
 }
