@@ -4,10 +4,12 @@ import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
-export default function CircularIndeterminate() {
-	const [showHero, setShowHero] = useState(false);
+import { findById } from '../../services/api';
 
-	const handleForm = (e) => {};
+export default function CircularIndeterminate() {
+	const response = findById('70');
+
+	console.log(response);
 
 	return (
 		<Container>

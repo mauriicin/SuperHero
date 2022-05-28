@@ -1,17 +1,24 @@
 import React from 'react';
 
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
 import Header from '../../components/Header';
 import ListHero from '../../components/ListHero';
 
 export default function Home() {
 	return (
-		<Container maxWidth="root">
+		<>
 			<Header />
-			<Grid>
+			<Box
+				component="main"
+				sx={{
+					padding: 4,
+					flexGrow: 1,
+					height: '100vh',
+					overflow: 'auto',
+				}}
+			>
 				<ListHero />
-			</Grid>
-		</Container>
+			</Box>
+		</>
 	);
 }
