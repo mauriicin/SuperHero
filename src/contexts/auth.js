@@ -1,7 +1,6 @@
 import React, { useState, useEffect, createContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -30,8 +29,9 @@ export const AuthProvider = ({ children }) => {
 		if (password === '123') {
 			setUser(loggedUser);
 			navigate('/');
-		}		
+		}
 	};
+
 	const logout = () => {
 		setUser(null);
 		localStorage.removeItem('user');
@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }) => {
 	return (
 		<AuthContext.Provider
 			value={{
-				authenticated: !!user,
+				authenticated: Boolean(user),
 				user,
 				loading,
 				login,

@@ -1,13 +1,17 @@
 import React from 'react';
 
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
+import Header from '../../components/Header';
+import ListHero from '../../components/ListHero';
+
 export default function Home() {
 	return (
-		<div className="App">
-			<header className="App-header">
-				<p>
-					home.
-				</p>
-			</header>
-		</div>
+		<Container maxWidth="root">
+			<Header />
+			<Grid>
+				<ListHero />
+			</Grid>
+		</Container>
 	);
 }
