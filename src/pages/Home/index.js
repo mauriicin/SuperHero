@@ -9,12 +9,10 @@ export default function Home() {
 		<>
 			<Header />
 			<Box
-				component="main"
 				sx={{
 					padding: 4,
 					flexGrow: 1,
 					height: '100vh',
-					overflow: 'auto',
 				}}
 			>
 				<ListHero />

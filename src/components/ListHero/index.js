@@ -23,6 +23,7 @@ export default function CircularIndeterminate() {
 	async function handleForm(e) {
 		e.preventDefault();
 		setError('');
+		setHeroData({})
 		setShowLoader(true);
 
 		findByName(clearSearch(hero)).then((r) => {
@@ -50,7 +51,7 @@ export default function CircularIndeterminate() {
 					width: '100%',
 				}}
 			>
-				{!error ? <></> : <Alert severity="error">{error}</Alert>}
+				{!error ? <></> : <Alert sx={{ marginBottom: 5}} severity="error">{error}</Alert>}
 				<form onSubmit={handleForm}>
 					<TextField
 						helperText="Look for a hero."
