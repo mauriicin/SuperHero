@@ -6,8 +6,9 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+
+import ModalDetails from '../../components/ModalDetails';
 
 export default function Hero({ data }) {
 	return (
@@ -60,7 +61,7 @@ export default function Hero({ data }) {
 								</Typography>
 							</CardContent>
 							<CardActions>
-								<Button size="small">more details</Button>
+								<ModalDetails details={hero.id} />
 							</CardActions>
 						</Card>
 					</>
