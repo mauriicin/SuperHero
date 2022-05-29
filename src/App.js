@@ -7,8 +7,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import RoutesConfig from './routes';
 import theme from './theme';
 
-function App() {	
-
+function App() {
 	return (
 		<ThemeProvider theme={theme}>
 			<CssBaseline />
