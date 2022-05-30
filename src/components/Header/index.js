@@ -9,28 +9,24 @@ import Button from '@mui/material/Button';
 import { AuthContext } from '../../contexts/auth';
 
 export default function Header() {
-	const { logout } = useContext(AuthContext);
+  const { logout } = useContext(AuthContext);
 
-	const handleLogout = () => {
-		logout();
-	};
+  const handleLogout = () => {
+    logout();
+  };
 
-	return (
-		<Box sx={{ flexGrow: 1 }}>
-			<AppBar position="static">
-				<Toolbar>
-					<Typography
-						variant="h6"
-						component="div"
-						sx={{ flexGrow: 1 }}
-					>
-						Super Hero
-					</Typography>
-					<Button onClick={handleLogout} color="inherit">
-						Logout
-					</Button>
-				</Toolbar>
-			</AppBar>
-		</Box>
-	);
+  return (
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static">
+        <Toolbar>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            Super Hero
+          </Typography>
+          <Button onClick={handleLogout} color="inherit">
+            Logout
+          </Button>
+        </Toolbar>
+      </AppBar>
+    </Box>
+  );
 }

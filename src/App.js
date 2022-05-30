@@ -8,12 +8,12 @@ import RoutesConfig from './routes';
 import theme from './theme';
 
 function App() {
-	return (
-		<ThemeProvider theme={theme}>
-			<CssBaseline />
-			<RoutesConfig />
-		</ThemeProvider>
-	);
+  return (
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <RoutesConfig />
+    </ThemeProvider>
+  );
 }
 
 export default App;
